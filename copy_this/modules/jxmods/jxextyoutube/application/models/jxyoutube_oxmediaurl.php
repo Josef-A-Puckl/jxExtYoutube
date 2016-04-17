@@ -18,12 +18,35 @@
  *
  * @link      https://github.com/job963/jxExtYoutube
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
- * @copyright (C) Joachim Barthel, 2015
+ * @copyright (C) Joachim Barthel, 2015-2016
  *
  */
 
 class jxyoutube_oxmediaurl extends jxyoutube_oxmediaurl_parent
 {
+    
+    /**
+     * Return HTML code depending on current URL
+     *
+     * @return string
+     * 
+     * Extended for a supporting youtube and vimeo
+     */
+    public function getHtml()
+    {
+        $sUrl = $this->oxmediaurls__oxurl->value;
+        //youtube link
+        if (strpos($sUrl, 'youtube.com') || strpos($sUrl, 'youtu.be')) {
+            return $this->_getYoutubeHtml();
+        }
+        if (strpos($sUrl, 'vimeo.com')) {
+            return $this->_getVimeoHtml();
+        }
+
+        //simple link
+        return $this->getHtmlLink();
+    }
+    
     
     /**
      * Transforms the link to YouTube object, and returns it.
@@ -97,6 +120,91 @@ class jxyoutube_oxmediaurl extends jxyoutube_oxmediaurl_parent
         $sYoutubeHtml = sprintf( $sYoutubeTemplate, $sDesc, $aSize[0], $aSize[1], $sYoutubeUrl, $sParams, $sYoutubeUrl );
 
         return $sYoutubeHtml;
+    }
+    
+    
+    /**
+     * Transforms the link to Vimeo object, and returns it.
+     *
+     * @return string
+     */
+    protected function _getVimeoHtml()
+    {
+        $sUrl = $this->oxmediaurls__oxurl->value;
+        $sDesc = $this->oxmediaurls__oxdesc->value;
+        
+        if ( strpos( $sUrl, 'vimeo.com' ) ) {
+            $sVimeoUrl = str_replace( "vimeo.com", "player.vimeo.com/video", $sUrl );
+        }
+
+        $myConfig = oxRegistry::get("oxConfig");
+        $aParams = array();
+        
+        if ( strpos($sVimeoUrl,'?') !== FALSE ) {
+            $aParams = explode( '&', substr($sVimeoUrl,strpos($sVimeoUrl,'?')+1) );
+            $sVimeoUrl = substr( $sVimeoUrl, 0, strpos($sVimeoUrl,'?') );
+        }
+        
+        $aSize = explode( 'x', $myConfig->getConfigParam( 'sJxYoutubeVideoSize' ) );
+        
+        if ( $myConfig->getConfigParam( 'bJxYoutubeAutoPlay' ) == TRUE ) {
+            $aParams[] = 'autoplay=1';
+        }
+        if ( $myConfig->getConfigParam( 'bJxYoutubeLoopPlay' ) == TRUE ) {
+            $aParams[] = 'loop=1';
+        }
+        if ( $myConfig->getConfigParam( 'bJxYoutubeVideoTitle' ) == FALSE ) {
+            $aParams[] = 'title=0';
+        }
+        if ( $myConfig->getConfigParam( 'bJxYoutubeLogo' ) == FALSE ) {
+            $aParams[] = 'portrait=0';
+        }
+        /*$aQuality = array( 'small', 'medium', 'large', 'hd720' );
+        if ( in_array( $myConfig->getConfigParam( 'sJxYoutubeVideoQuality'), $aQuality ) ) {
+            $aParams[] = 'vq=' . $myConfig->getConfigParam( 'sJxYoutubeVideoQuality');
+        }*/
+        
+        switch( $myConfig->getConfigParam( 'sJxYoutubeControlsColor') ) {
+            case 'blue':
+                $sColor = '00adef';
+                break;
+            
+            case 'orange':
+                $sColor = 'ff9933';
+                break;
+            
+            case 'lime':
+                $sColor = 'c9ff23';
+                break;
+            
+            case 'magenta':
+                $sColor = 'ff0179';
+                break;
+            
+            case 'white':
+                $sColor = 'ffffff';
+                break;
+            
+            default :
+                $sColor = '00adef';
+        }
+        $aParams[] = 'color=' . $sColor;
+
+        /*
+        if ( $myConfig->getConfigParam( 'bJxYoutubeShowLink' ) == TRUE ) {
+            $aParams[] = 'cc_load_policy=1';
+        }
+        if ( $myConfig->getConfigParam( 'bJxYoutubeDescription' ) == FALSE ) {
+            $aParams[] = 'iv_load_policy=3';
+        }
+        */
+        
+        $sParams = '?' . implode( '&', $aParams );
+        
+        $sVimeoTemplate = '%s<br><iframe width="%d" height="%d" src="%s%s" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+        $sVimeoHtml = sprintf( $sVimeoTemplate, $sDesc, $aSize[0], $aSize[1], $sVimeoUrl, $sParams, $sVimeoUrl );
+
+        return $sVimeoHtml;
     }
     
 }

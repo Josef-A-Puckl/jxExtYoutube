@@ -1,13 +1,13 @@
 # jxExtYoutube
 
-**Extension Module for Embedded Youtube Videos**
+**Extension Module for Embedded Youtube and Vimeo Videos**
 
-This module allows to define the settings for all embedded YouTube video, like
+This module allows to define the settings for all embedded YouTube and Vimeo videos, like
 
 - video size
 - video quality
 - auto repeat
-- reuse of choosen shop language
+- reuse of chosen shop language
 - subtitles
 - no cookies
 - etc.
@@ -35,3 +35,6 @@ This module is tested with OXID version 4.7, 4.8 and 4.9.
 - **0.1 - Initial release**
 	- Settings for embedded YouTube videos
 	- Inheritance of media files for variants  
+
+- **0.2 - Vimeo update**
+	- Vimeo videos can be embedded now as well
