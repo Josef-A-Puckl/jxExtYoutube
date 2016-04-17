@@ -1,6 +1,6 @@
 <?php
-$sLangName  = "Deutsch";
-$iLangNr    = 0;
+$sLangName = "Deutsch";
+$iLangNr   = 0;
 $aLang = array(
     'SHOP_MODULE_GROUP_JXYOUTUBE_PLAYSETTINGS'      => 'Wiedergabe',
     'SHOP_MODULE_sJxYoutubeVideoSize'               => 'Anzeigeg&ouml;&szlig;e',
