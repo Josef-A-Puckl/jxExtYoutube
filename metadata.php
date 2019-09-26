@@ -16,7 +16,7 @@
                             'en' => 'Extension for configurable display of embedded YouTube and Vimeo Videos and inheritance of media files to variants.'
                             ],
         'thumbnail'     => 'jxextyoutube.png',
-        'version'       => '0.2.1',
+        'version'       => '1.0.0',
         'author'        => 'Joachim Barthel',
         'url'           => 'https://github.com/job963/jxextyoutube',
         'email'         => 'jobarthel@gmail.com',
