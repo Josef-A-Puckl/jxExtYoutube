@@ -1,5 +1,4 @@
 <?php
-
 /*
  *    This file is part of the module jxExtYoutube for OXID eShop Community Edition.
  *
@@ -22,32 +21,36 @@
  *
  */
 
-class jxyoutube_oxarticle extends jxyoutube_oxarticle_parent
+namespace Ecs\Jx\jxExtYoutube\Model;
+
+use OxidEsales\Eshop\Core\DatabaseProvider;
+use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Request;
+
+class Article extends Article_parent
 {
     /**
      * Return article media URL
      *
      * @return array
-     * 
+     *
      * Extended for retrieving parent media urls if it is a variant and inheriting them
      */
     public function getMediaUrls()
     {
-        if ( $this->_aMediaUrls === null ) {
+        if ($this->_aMediaUrls === null) {
             $this->_aMediaUrls = oxNew("oxlist");
             $this->_aMediaUrls->init("oxmediaurl");
-            $this->_aMediaUrls->getBaseObject()->setLanguage( $this->getLanguage() );
+            $this->_aMediaUrls->getBaseObject()->setLanguage($this->getLanguage());
 
-            $sViewName = getViewName( "oxmediaurls", $this->getLanguage() );
-            if ( $this->getParentId() ) {
-                $sQ = "select * from {$sViewName} where oxobjectid = '".$this->getParentId()."'";
-            }
-            else {
-                $sQ = "select * from {$sViewName} where oxobjectid = '".$this->getId()."'";
+            $sViewName = getViewName("oxmediaurls", $this->getLanguage());
+            if ($this->getParentId()) {
+                $sQ = "select * from {$sViewName} where oxobjectid = '" . $this->getParentId() . "'";
+            } else {
+                $sQ = "select * from {$sViewName} where oxobjectid = '" . $this->getId() . "'";
             }
             $this->_aMediaUrls->selectString($sQ);
         }
         return $this->_aMediaUrls;
     }
-    
 }

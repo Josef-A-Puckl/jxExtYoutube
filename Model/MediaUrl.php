@@ -1,5 +1,4 @@
 <?php
-
 /*
  *    This file is part of the module jxExtYoutube for OXID eShop Community Edition.
  *
@@ -22,7 +21,13 @@
  *
  */
 
-class jxyoutube_oxmediaurl extends jxyoutube_oxmediaurl_parent
+namespace Ecs\Jx\jxExtYoutube\Model;
+
+use OxidEsales\Eshop\Core\DatabaseProvider;
+use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Request;
+
+class MediaUrl extends MediaUrl_parent
 {
     
     /**
@@ -68,7 +73,7 @@ class jxyoutube_oxmediaurl extends jxyoutube_oxmediaurl_parent
             $sYoutubeUrl = str_replace( "youtu.be/", "www.youtube.com/embed/", $sUrl );
         }
 
-        $myConfig = oxRegistry::get("oxConfig");
+        $myConfig = Registry::get("oxConfig");
         $aParams = array();
         
         if ( strpos($sYoutubeUrl,'?') !== FALSE ) {
@@ -88,7 +93,7 @@ class jxyoutube_oxmediaurl extends jxyoutube_oxmediaurl_parent
             $aParams[] = 'hd=1';
         }
         if ( $myConfig->getConfigParam( 'bJxYoutubeUseShopLanguage' ) == TRUE ) {
-            $oLang = oxRegistry::getLang();
+            $oLang = Registry::getLang();
             $iLangId = $oLang->getTplLanguage();
             $sLangCode = $oLang->getLanguageAbbr( $iLangId );
             $aParams[] = 'hl='.$sLangCode;
@@ -106,7 +111,7 @@ class jxyoutube_oxmediaurl extends jxyoutube_oxmediaurl_parent
         if ( $myConfig->getConfigParam( 'bJxYoutubeAnnotations' ) == FALSE ) {
             $aParams[] = 'iv_load_policy=3';
         }
-        $aQuality = array( 'small', 'medium', 'large', 'hd720' );
+        $aQuality = array( 'small', 'medium', 'large', 'hd720', 'hd1080' );
         if ( in_array( $myConfig->getConfigParam( 'sJxYoutubeVideoQuality'), $aQuality ) ) {
             $aParams[] = 'vq=' . $myConfig->getConfigParam( 'sJxYoutubeVideoQuality');
         }
@@ -137,7 +142,7 @@ class jxyoutube_oxmediaurl extends jxyoutube_oxmediaurl_parent
             $sVimeoUrl = str_replace( "vimeo.com", "player.vimeo.com/video", $sUrl );
         }
 
-        $myConfig = oxRegistry::get("oxConfig");
+        $myConfig = Registry::get("oxConfig");
         $aParams = array();
         
         if ( strpos($sVimeoUrl,'?') !== FALSE ) {

@@ -16,6 +16,7 @@ $aLang = array(
     'SHOP_MODULE_sJxYoutubeVideoSize_640x360'       => '640 x 360 (16:9)',
     'SHOP_MODULE_sJxYoutubeVideoSize_853x480'       => '853 x 480 (16:9)',
     'SHOP_MODULE_sJxYoutubeVideoSize_1280x720'      => '1280 x 720 (16:9)',
+    'SHOP_MODULE_sJxYoutubeVideoSize_1920x1080'     => '1920 x 1080 (16:9)',
     'SHOP_MODULE_bJxYoutubeAutoPlay'                => 'Automatisch wiedergeben',
     'SHOP_MODULE_bJxYoutubeRecommendation'          => 'Am Ende vorgeschlagene Videos zeigen',
     
@@ -31,7 +32,8 @@ $aLang = array(
     'SHOP_MODULE_sJxYoutubeVideoQuality_medium'     => 'mittel (360p)',
     'SHOP_MODULE_sJxYoutubeVideoQuality_large'      => 'hoch (480p)',
     'SHOP_MODULE_sJxYoutubeVideoQuality_hd720'      => 'HD720 (720p)',
-    'SHOP_MODULE_bJxYoutubePlayHD'                  => 'In HD (720p) wiedergeben',
+    'SHOP_MODULE_sJxYoutubeVideoQuality_hd1080'     => 'HD1080(1080p)',
+    'SHOP_MODULE_bJxYoutubePlayHD'                  => 'In HD wiedergeben',
     'SHOP_MODULE_bJxYoutubeAnnotations'             => 'Video-Anmerkungen anzeigen',
     'SHOP_MODULE_bJxYoutubeSubtitles'               => 'Untertitel anzeigen',
     'SHOP_MODULE_bJxYoutubeExtendedPrivacy'         => 'Erweiterten Datenschutzmodus aktivieren',
@@ -49,7 +51,7 @@ $aLang = array(
     'SHOP_MODULE_bJxYoutubeShowLink'                => 'Textlink unter dem Video anzeigen',
     'SHOP_MODULE_bJxYoutubeShowDescription'         => 'Beschreibung unter dem Video anzeigen',
     
-    'charset'                    => 'ISO-8859-15',
+    'charset'                    => 'UTF-8',
 );
 
 ?>

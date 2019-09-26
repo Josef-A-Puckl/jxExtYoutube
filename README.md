@@ -20,15 +20,10 @@ Additionally the module inherits the media files defined for the parent article 
 
 ## Setup ##
 
-1. Unzip the complete file with all the folder structures and upload the content of the folder copy_this to the root folder of your shop.  
-OR  
-Install the [ioly OXID-Connector](https://github.com/ioly/ioly/tree/connector-oxid) (if you haven't done that already), type _jxExtYoutube_ in searchbox and click on ```Install```.  
+OXID eShop 6:
 
-2. After this navigate in the admin backend of the shop to _Extensions_ - _Modules_. Select the module _jxExtYoutube_ and click on `Activate`.
+`composer require ecs/jxextyoutube`  
 
-If you open the menu _Products_, you will see the the new menu item _Text Finder_.
-
-This module is tested with OXID version 4.7, 4.8 and 4.9.
 
 ## Release history ##
 

@@ -1,0 +1,36 @@
+{
+  "name": "ecs/jxextyoutube",
+  "version": "1.0.0",
+  "description": "jxExtYoutube - Extension Module for embedded Youtube Videos",
+  "type": "oxideshop-module",
+  "license": [
+    "GPL-3.0-only"
+  ],
+  "authors": [
+    {
+      "name":  "Josef A. Puckl | eComStyle.de",
+      "homepage": "https://ecomstyle.de",
+      "email": "info@ecomstyle.de",
+      "role":  "Developer"
+    },
+    {
+      "name": "Joachim Barthel",
+      "homepage": "https://github.com/job963/jxAttrEdit",
+      "email": "jobarthel@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">= 7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ecs\\Jx\\jxExtYoutube\\": "../../../source/modules/jx/jxextyoutube"
+    }
+  },
+  "extra": {
+    "oxideshop": {
+      "target-directory": "jx/jxextyoutube"
+    }
+  }
+}
