@@ -1,6 +1,6 @@
 {
   "name": "ecs/jxextyoutube",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "jxExtYoutube - Extension Module for embedded Youtube Videos",
   "type": "oxideshop-module",
   "license": [

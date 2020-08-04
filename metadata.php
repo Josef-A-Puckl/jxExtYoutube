@@ -16,7 +16,7 @@
                             'en' => 'Extension for configurable display of embedded YouTube and Vimeo Videos and inheritance of media files to variants.'
                             ],
         'thumbnail'     => 'jxextyoutube.png',
-        'version'       => '1.0.0',
+        'version'       => '1.0.1',
         'author'        => 'Joachim Barthel',
         'url'           => 'https://github.com/job963/jxextyoutube',
         'email'         => 'jobarthel@gmail.com',
@@ -30,7 +30,7 @@
                 'name' => 'sJxYoutubeVideoSize',
                 'type' => 'select',
                 'value' => '1920x1080',
-                'constrains' => '425x340|420x315|480x360|533x400|640x480|960x720|533x300|560x315|640x360|853x480|1280x720|1920x1080',
+                'constraints' => '425x340|420x315|480x360|533x400|640x480|960x720|533x300|560x315|640x360|853x480|1280x720|1920x1080',
                 'position' => 0
             ],
             [
@@ -75,7 +75,7 @@
                 'name' => 'sJxYoutubeVideoQuality',
                 'type' => 'select',
                 'value' => 'hd1080',
-                'constrains' => 'default|small|medium|large|hd720|hd1080',
+                'constraints' => 'default|small|medium|large|hd720|hd1080',
                 'position' => 0
             ],
             [
@@ -102,7 +102,7 @@
                 'name' => 'sJxYoutubeControlsColor',
                 'type' => 'select',
                 'value' => 'blue',
-                'constrains' => 'blue|orange|lime|magenta|white',
+                'constraints' => 'blue|orange|lime|magenta|white',
                 'position' => 0
             ],
             [
